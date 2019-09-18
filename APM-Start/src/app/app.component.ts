@@ -6,11 +6,13 @@ import { Component } from '@angular/core';
   template: `
       <div>
         <h1>{{pageTitle}}</h1>
-        <div>html template in @Component</div>
+        <h3>{{note}}</h3>
+        <tbl-list-products></tbl-list-products>
       </div>
     `
 })
 
 export class AppComponent{
-  pageTitle: string = 'Component title';
+  pageTitle: string = 'Table Component Title';
+  note: string = 'with awful html 4.0';
 }
