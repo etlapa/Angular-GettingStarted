@@ -1,12 +1,12 @@
 export interface IProduct{
-    productId:      Number,
-    productName:    String,
-    productCode:    String,
+    productId:      number,
+    productName:    string,
+    productCode:    string,
     //FIXME: Date is not supported as string
-    releaseDate:    String,
-    description:    String,
-    price:          Number,
-    starRating:     Number,
-    imageUrl:       String;
-    // calculateDiscount(percent: Number): Number;
+    releaseDate:    string,
+    description:    string,
+    price:          number,
+    starRating:     number,
+    imageUrl:       string
+    calculateDiscount(percent: number): number;
 }

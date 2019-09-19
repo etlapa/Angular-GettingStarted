@@ -10,7 +10,7 @@ export class ProductListComponent{
     imageWidth: number = 50;
     showImage: boolean = true;
     filterText: String = '';
-    products: IProduct[] =   [{
+    products: Product[] =   [{
         "productId": 1,
         "productName": "Leaf Rake",
         "productCode": "GDN-0011",
@@ -63,4 +63,18 @@ export class ProductListComponent{
       toggle(): void{
         this.showImage=!this.showImage;
       };
+}
+
+export class Product implements IProduct{
+  productId:    number;  
+  productName:  string;
+  productCode:  string;
+  releaseDate:  string;
+  description:  string;
+  price:        number;
+  starRating:   number;
+  imageUrl:     string;
+  calculateDiscount(percent: number): number {
+    return this.price - (this.price * percent/100);
+  }
 }
