@@ -1,6 +1,9 @@
 <table border="1" cellpadding="10" cellspacing="10">
     <tr>
         <th>
+            <button (click)='toggle()'>Toggle</button>
+        </th>
+        <th>
             Id
         </th>
         <th>
@@ -11,6 +14,12 @@
         </th>
     </tr>
     <tr *ngFor='let product of products'>
+        <td>
+            <img src="{{product.imageUrl}}" 
+                *ngIf='showImage'
+                [style.width.px]='imageWidth'
+                [title]='product.productName' />
+        </td>
         <td>
             {{product.productId}}
         </td>

@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
 })
 
 export class ProductListComponent{
+    imageWidth: number = 50;
+    showImage: boolean = true;
     products: any[] =   [{
         "productId": 1,
         "productName": "Leaf Rake",
@@ -56,4 +58,7 @@ export class ProductListComponent{
         "starRating": 4.6,
         "imageUrl": "assets/images/xbox-controller.png"
       }]
+      toggle(): void{
+        this.showImage=!this.showImage;
+      };
 }
