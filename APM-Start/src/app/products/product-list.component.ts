@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
 
 @Component({
@@ -6,11 +6,11 @@ import { IProduct } from './product';
     templateUrl: './product-list.html'
 })
 
-export class ProductListComponent{
+export class ProductListComponent implements OnInit{
     imageWidth: number = 50;
     showImage: boolean = true;
     filterText: String = '';
-    products: Product[] =   [{
+    products: IProduct[] =   [{
         "productId": 1,
         "productName": "Leaf Rake",
         "productCode": "GDN-0011",
@@ -62,19 +62,8 @@ export class ProductListComponent{
       }]
       toggle(): void{
         this.showImage=!this.showImage;
+      }
+      ngOnInit(): void {
+        console.log("Testing the OnInit hook.");
       };
-}
-
-export class Product implements IProduct{
-  productId:    number;  
-  productName:  string;
-  productCode:  string;
-  releaseDate:  string;
-  description:  string;
-  price:        number;
-  starRating:   number;
-  imageUrl:     string;
-  calculateDiscount(percent: number): number {
-    return this.price - (this.price * percent/100);
-  }
 }

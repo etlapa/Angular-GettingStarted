@@ -7,6 +7,5 @@ export interface IProduct{
     description:    string,
     price:          number,
     starRating:     number,
-    imageUrl:       string
-    calculateDiscount(percent: number): number;
+    imageUrl:       string;
 }
