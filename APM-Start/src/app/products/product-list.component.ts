@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class ProductListComponent{
     imageWidth: number = 50;
     showImage: boolean = true;
+    filterText: String = '';
     products: any[] =   [{
         "productId": 1,
         "productName": "Leaf Rake",
