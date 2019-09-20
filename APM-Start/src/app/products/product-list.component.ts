@@ -7,9 +7,22 @@ import { IProduct } from './product';
 })
 
 export class ProductListComponent implements OnInit{
+
+    constructor(){
+      this.filterText = '';
+    }
+
     imageWidth: number = 50;
     showImage: boolean = true;
-    filterText: String = '';
+    filteredProducts: IProduct[];
+    _filterText: string = '';
+    get filterText(): string{
+      return this._filterText;
+    }
+    set filterText(value: string){
+      this._filterText = value;
+      this.filteredProducts = (this._filterText)?this.performFilter(value):this.products;
+    }
     products: IProduct[] =   [{
         "productId": 1,
         "productName": "Leaf Rake",
@@ -65,5 +78,10 @@ export class ProductListComponent implements OnInit{
       }
       ngOnInit(): void {
         console.log("Testing the OnInit hook.");
-      };
+      }
+      performFilter(filterBy: string):IProduct[]{
+        return this.products.filter((product: IProduct)=>
+          product.productName.toLocaleLowerCase().indexOf(filterBy)!==-1
+        );
+      }
 }
